@@ -1,12 +1,17 @@
-#pragma once
-#include <Windows.h>
+/*****************/
+/* file: sound.h */
+/*****************/
 
-#define SOUND_ON 3
-#define SOUNDTYPE_TICK 1
-#define SOUNDTYPE_WIN 2
-#define SOUNDTYPE_LOSE 3
+#define TUNE_TICK      1
+#define TUNE_WINGAME   2
+#define TUNE_LOSEGAME  3
 
-// Sound Functions
-DWORD StopAllSound();
-void FreeSound();
-void PlayGameSound(DWORD soundType);
+#define fsoundOn  3
+#define fsoundOff 2
+
+#define FSoundSwitchable()  (Preferences.fSound > 1)
+#define FSoundOn()          (Preferences.fSound == fsoundOn)
+
+INT  FInitTunes(VOID);
+VOID PlayTune(INT);
+VOID EndTunes(VOID);

@@ -16,6 +16,7 @@ The artifacts of the reverse engineering process:
 
 Most of the process is done using static analysis without using a decompiler. I wanted to read lots of assembly code.
 
+Update: Used XP Minesweeper source code from leaked source, adjusted to MSVC v143
 ## TODO
 
 - Create documentation

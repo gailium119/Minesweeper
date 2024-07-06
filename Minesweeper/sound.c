@@ -1,44 +1,78 @@
+/***********/
+/* sound.c */
+/***********/
+
+#define  _WINDOWS
+#include <windows.h>
+//#include <port1632.h>
+#include <mmsystem.h>
+
+#include "main.h"
 #include "sound.h"
-#include "config.h"
-#include "resource.h"
-#include "windowing.h"
+#include "rtns.h"
+#include "pref.h"
+#include "res.h"
 
-// 3 if SND_PURGE succeeded else 2
-DWORD StopAllSound() {
-    if (PlaySoundW(NULL, NULL, SND_PURGE)) {
-        3;
-    }
+extern HANDLE hInst;
+extern PREF Preferences;
 
-    return 2;
+
+
+/****** F I N I T  T U N E S ******/
+
+INT FInitTunes( VOID )
+{
+	// Even if the user has chosen the sound option
+	// but does not have sound playing capabilities,
+	// put the sound off.
+	if ( PlaySound(NULL, NULL, SND_PURGE)  == FALSE)
+		return fsoundOff;
+	
+	return fsoundOn;
 }
 
-void FreeSound() {
-    if (GameConfig.Sound == 3) {
-        // Stop all music
-        PlaySoundW(0, 0, SND_PURGE);
-    }
+
+
+/****** E N D  T U N E S ******/
+
+VOID EndTunes(VOID)
+{
+	// Just stop the tune ..
+	if (FSoundOn())
+	{
+		PlaySound(NULL, NULL, SND_PURGE);
+	}
 }
 
-void PlayGameSound(DWORD soundType) {
-    if (GameConfig.Sound != SOUND_ON) {
+
+
+/****** P L A Y  T U N E ******/
+
+VOID PlayTune(INT tune)
+{
+
+    if (!FSoundOn())
         return;
-    }
 
-    DWORD soundResourceId;
+	// Play the appropriate .wav file.
+	switch (tune)
+	{
+	case TUNE_TICK:
+        PlaySound(MAKEINTRESOURCE(ID_TUNE_TICK), hInst, SND_RESOURCE | SND_ASYNC);
+		break;
 
-    switch (soundType) {
-    case SOUNDTYPE_TICK:
-        soundResourceId = ID_SOUND_TICK;
-        break;
-    case SOUNDTYPE_WIN:
-        soundResourceId = ID_SOUND_WIN;
-        break;
-    case SOUNDTYPE_LOSE:
-        soundResourceId = ID_SOUND_LOSE;
-        break;
-    default:
-        return;
-    }
+	case TUNE_WINGAME:
+	    PlaySound(MAKEINTRESOURCE(ID_TUNE_WON), hInst, SND_RESOURCE | SND_ASYNC); 
+		break;
 
-    PlaySoundW((LPCWSTR)soundResourceId, hModule, SND_ASYNC | SND_RESOURCE);
+	case TUNE_LOSEGAME:
+	    PlaySound(MAKEINTRESOURCE(ID_TUNE_LOST), hInst, SND_RESOURCE | SND_ASYNC);
+		break;
+
+	default:
+#ifdef DEBUG
+		Oops(TEXT("Invalid Tune"));
+#endif
+		break;
+	}
 }

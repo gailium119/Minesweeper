@@ -15,52 +15,102 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="help.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sound.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="drawing.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="config.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="windowing.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="utils.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="game.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Manifest Include="winmine.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h">
+    <ClInclude Include="context.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grafix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pref.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="res.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rtns.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="windowing.h">
+    <ClInclude Include="util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="drawing.h">
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="grafix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pref.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rtns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sound.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="winmine.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mine.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="pref.dlg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="strings.inc">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="help.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="bmp\blocks.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp\blocksbw.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp\button.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp\buttonbw.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp\led.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp\ledbw.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bmp\winmine.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="bmp\explode.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="bmp\tick.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="bmp\win.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>
